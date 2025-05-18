@@ -7,7 +7,7 @@ export default function Home() {
     <>
       <Navbar></Navbar>
       <MainLayout>
-        <section className="grid grid-cols-12 gap-2 text-white">
+        <section className="container grid grid-cols-12 gap-2 text-white p-4">
           {/* <h1>Im from main content</h1> */}
           {/* left */}
           <div className="primary-border-style col-span-3">this is left side bar</div>

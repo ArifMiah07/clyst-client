@@ -5,21 +5,26 @@
   --accent-color: #10b981;
 
   /* heading */
-  --heading_text_bg: radial-gradient(
+  --heading_text_with_radial-gradient_background: radial-gradient(
     50% 50% at 50% 50%,
     #0afa5a 0%,
     #222fe9 100%
   );
 
   /* background */
-  --filed_bg_gradient: var(
-    --filed_bg_gdnt,
-    linear-gradient(
-      90deg,
-      rgba(160, 45, 192, 0.1) 0%,
-      rgba(87, 48, 240, 0.1) 100%
-    )
+  --filed_bg_gradient: linear-gradient(
+    90deg,
+    rgba(160, 45, 192, 0.1) 0%,
+    rgba(87, 48, 240, 0.1) 100%
   );
+
+  --third-layer-background: linear-gradient(
+    90deg,
+    rgba(160, 45, 192, 0.3) 0%,
+    rgba(47, 123, 216, 0.3) 49.5%,
+    rgba(87, 48, 240, 0.3) 100%
+  );
+
   --base-background: radial-gradient(
     circle at 60% 50%,
     /* center at approx. x: 60%, y: 50% */ #21259f 0%,
@@ -55,26 +60,14 @@
 
 body {
   font-family: var(--font-family);
-  background: var(
-    --base-background,
-    radial-gradient(
-      circle at 60% 50%,
-      /* center at approx. x: 60%, y: 50% */ #21259f 0%,
-      #0c0d39 100%
-    )
-  );
+  background: var(--base-background);
   color: var(--text-color);
   /* padding: var(--spacing-md); */
 }
 
-/* .button {
-  background-color: var(--primary-color);
-  color: white;
-  border-radius: var(--radius-md);
-  padding: var(--spacing-sm) var(--spacing-md);
-  border: none;
-  cursor: pointer;
-} */
+.filed_bg_gradient {
+  background: var(--filed_bg_gradient);
+}
 
 .typography {
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -86,6 +79,25 @@ body {
 }
 
 .nav {
+  background: var(--filed_bg_gradient);
+  width: 100%;
+  height: 80px;
+  border: 1px solid #000;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.primary-border-style {
+  border: var(--primary-border);
+  box-shadow: var(--primary-box-shadow);
+}
+
+.heading-text-rgb{
+  background: var(--heading_text_with_radial-gradient_background);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.second-layer-background {
   background: var(
     --filed_bg_gradient,
     linear-gradient(
@@ -94,21 +106,7 @@ body {
       rgba(87, 48, 240, 0.1) 100%
     )
   );
-  border: 1px solid #000;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
-
-.primary-border-style{
-    border: var(--primary-border);
-    box-shadow: var(--primary-box-shadow);
-}
-
-.heading_text_bg {
-  background: var(
-    --heading_text_bg,
-    radial-gradient(50% 50% at 50% 50%, #0afa5a 0%, #222fe9 100%)
-  );
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.third-layer-background {
+  background: var(--third-layer-background);
 }
