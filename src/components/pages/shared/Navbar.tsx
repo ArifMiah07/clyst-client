@@ -3,7 +3,7 @@
 import Link from "next/link";
 import "../../../styles/customStyles.css";
 import Image from "next/image";
-import { navLink, navLinks, notifyLinks } from "./constants/navbar.constants";
+import { menuBarLinks, navLinks, notifyLinks } from "./constants/navbar.constants";
 
 export default function Navbar() {
   
@@ -28,13 +28,13 @@ export default function Navbar() {
         {/* nav links */}
         <div className="w-fit second-layer-background rounded-full flex items-center justify-center p-3 ">
           <ul className="w-full h-full flex gap-2 items-center justify-center  ">
-            {navLink}
+            {navLinks}
           </ul>
         </div>
         {/* user menu */}
         <div className="w-fit second-layer-background rounded-full flex items-center justify-center p-3 ">
           <ul className="w-full h-full flex gap-2 items-center justify-center  ">
-            {notifyLinks}
+            {menuBarLinks}
           </ul>
         </div>
       </div>

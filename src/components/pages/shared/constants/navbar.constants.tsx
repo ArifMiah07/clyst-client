@@ -1,104 +1,63 @@
 "use client";
 import Link from "next/link";
 
-const stylesForLi =
+// styles
+const stylesForLi: string =
   "flex third-layer-background w-8 h-8  items-center justify-center rounded-full border border-[#222FE9]";
-const stylesForLiSpan = "heading-text-rgb";
+const stylesForLiSpan: string = "heading-text-rgb";
 
+// contents
+const notifyLinksInnerContents: string[] = ["R", "M", "L", "N", "O"];
+const navLinksInnerContent: string[] = [
+  "R",
+  "M",
+  "L",
+  "N",
+  "O",
+  "S",
+  "P",
+  "K",
+  "D",
+  "Y",
+];
+const menuBarLinksInnerContent: string[] = ["C", "P", "D", "M", "O"];
+
+// utils
+// notifyLinks
 export const notifyLinks = (
   <>
-    <li className={`${stylesForLi}`}>
-      <Link href={""}>
-        <span className={`${stylesForLiSpan}`}>R</span>
-      </Link>
-    </li>
-    <li className={`${stylesForLi}`}>
-      <Link href={""}>
-        <span className={`${stylesForLiSpan}`}>M</span>
-      </Link>
-    </li>
-    <li className={`${stylesForLi}`}>
-      <Link href={""}>
-        <span className={`${stylesForLiSpan}`}>L</span>
-      </Link>
-    </li>
-    <li className={`${stylesForLi}`}>
-      <Link href={""}>
-        <span className={`${stylesForLiSpan}`}>N</span>
-      </Link>
-    </li>
-    <li className={`${stylesForLi}`}>
-      <Link href={""}>
-        <span className={`${stylesForLiSpan}`}>O</span>
-      </Link>
-    </li>
+    {notifyLinksInnerContents.map((innerContent: string, index: number) => (
+      <li key={index} className={`${stylesForLi}`}>
+        <Link href={`/${(innerContent.toLowerCase())}`}>
+          <span className={`${stylesForLiSpan}`}>{innerContent}</span>
+        </Link>
+      </li>
+    ))}
   </>
 );
 
-const navLinksInnerContent = ["R", "M", "L", "N", "O", "S", "P", "K", "D", "Y"];
-
-export const navLink = <>
-{
-    navLinksInnerContent.map((innerContent, index)=> <li key={index} className={`${stylesForLi}`}>
-      <Link href={`/${(innerContent).toLowerCase()}`}>
-        <span className={`${stylesForLiSpan}`}>{innerContent}</span>
-      </Link>
-    </li>)
-}
-
-</>
-
+// navLinks
 export const navLinks = (
   <>
-    <li className={`${stylesForLi}`}>
-      <Link href={""}>
-        <span className={`${stylesForLiSpan}`}>R</span>
-      </Link>
-    </li>
-    <li className={`${stylesForLi}`}>
-      <Link href={""}>
-        <span className={`${stylesForLiSpan}`}>M</span>
-      </Link>
-    </li>
-    <li className={`${stylesForLi}`}>
-      <Link href={""}>
-        <span className={`${stylesForLiSpan}`}>L</span>
-      </Link>
-    </li>
-    <li className={`${stylesForLi}`}>
-      <Link href={""}>
-        <span className={`${stylesForLiSpan}`}>N</span>
-      </Link>
-    </li>
-    <li className={`${stylesForLi}`}>
-      <Link href={""}>
-        <span className={`${stylesForLiSpan}`}>O</span>
-      </Link>
-    </li>
-    <li className={`${stylesForLi}`}>
-      <Link href={""}>
-        <span className={`${stylesForLiSpan}`}>S</span>
-      </Link>
-    </li>
-    <li className={`${stylesForLi}`}>
-      <Link href={""}>
-        <span className={`${stylesForLiSpan}`}>P</span>
-      </Link>
-    </li>
-    <li className={`${stylesForLi}`}>
-      <Link href={""}>
-        <span className={`${stylesForLiSpan}`}>K</span>
-      </Link>
-    </li>
-    <li className={`${stylesForLi}`}>
-      <Link href={""}>
-        <span className={`${stylesForLiSpan}`}>D</span>
-      </Link>
-    </li>
-    <li className={`${stylesForLi}`}>
-      <Link href={""}>
-        <span className={`${stylesForLiSpan}`}>Y</span>
-      </Link>
-    </li>
+    {navLinksInnerContent.map((innerContent: string, index: number) => (
+      <li key={index} className={`${stylesForLi}`}>
+        <Link href={`/${innerContent.toLowerCase()}`}>
+          <span className={`${stylesForLiSpan}`}>{innerContent}</span>
+        </Link>
+      </li>
+    ))}
+  </>
+);
+
+// User Specific menu bar
+export const menuBarLinks = (
+  <>
+    {menuBarLinksInnerContent.map((innerContent: string, index: number) => (
+      <li key={index} className={`${stylesForLi}`}>
+        <Link href={`/${(innerContent.toLowerCase())}`}>
+          <span className={`${stylesForLiSpan}`}>{innerContent}</span>
+        </Link>
+      </li>
+    ))}
   </>
 );
