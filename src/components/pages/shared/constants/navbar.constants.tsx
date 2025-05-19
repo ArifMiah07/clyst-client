@@ -3,6 +3,9 @@ import { Magnet, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import { ReactNode } from "react";
 import { Bell } from 'lucide-react';
+
+
+
 // styles
 const stylesForLi: string =
   "flex third-layer-background w-8 h-8  items-center justify-center rounded-full border border-[#222FE9]";
