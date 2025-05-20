@@ -2,9 +2,8 @@
 import { Magnet, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import { ReactNode } from "react";
-import { Bell } from 'lucide-react';
-
-
+import { Bell } from "lucide-react";
+import Image from "next/image";
 
 // styles
 const stylesForLi: string =
@@ -14,9 +13,9 @@ const stylesForLiSpan: string = "heading-text-rgb";
 // contents
 const notifyLinksInnerContents: string[] = ["R", "M", "L", "N", "O"];
 
-
 type TNotifyRoutes = {
   icon?: ReactNode;
+  iconUrl?: string;
   label: string;
   text: string;
   route?: string;
@@ -24,73 +23,77 @@ type TNotifyRoutes = {
   children?: ReactNode | null;
 };
 
-const notifyRoutes : TNotifyRoutes[] = [
-    {
-        icon: <Bell /> ,
-        label: 'Clyster',
-        text: 'Clyster',
-        route: 'clyster',
-        altText: 'clyster messenger app',
-        children: null,
-    },
-    {
-        icon: <Magnet />,
-        label: 'Profile',
-        text: 'Profile',
-        route: 'profile',
-        altText: 'users profile page',
-        children: null,
-    },
-    {
-        icon: <MessageCircle />,
-        label: 'Clyster',
-        text: 'Clyster',
-        route: 'clyster',
-        altText: 'clyster messenger app',
-        children: null,
-    },
-    {
-        icon: <Magnet />,
-        label: 'Profile',
-        text: 'Profile',
-        route: 'profile',
-        altText: 'users profile page',
-        children: null,
-    },
+const notifyRoutes: TNotifyRoutes[] = [
+  {
+    // icon: <Bell /> ,
+    iconUrl: "/assets/images/icons/md-male-profile.svg",
+    label: "Clyster",
+    text: "Clyster",
+    route: "clyster",
+    altText: "clyster messenger app",
+    children: null,
+  },
+  {
+    // icon: <Magnet />,
+    iconUrl: "/assets/images/icons/md-male-profile.svg",
+    label: "Profile",
+    text: "Profile",
+    route: "profile",
+    altText: "users profile page",
+    children: null,
+  },
+  {
+    // icon: <MessageCircle />,
+    iconUrl: "/assets/images/icons/md-male-profile.svg",
+    label: "Clyster",
+    text: "Clyster",
+    route: "clyster",
+    altText: "clyster messenger app",
+    children: null,
+  },
+  {
+    // icon: <Magnet />,
+    iconUrl: "/assets/images/icons/md-male-profile.svg",
+    label: "Profile",
+    text: "Profile",
+    route: "profile",
+    altText: "users profile page",
+    children: null,
+  },
 ];
-const menuRoutes : TNotifyRoutes[] = [
-    {
-        icon: <MessageCircle />,
-        label: 'Clyster',
-        text: 'Clyster',
-        route: 'clyster',
-        altText: 'clyster messenger app',
-        children: null,
-    },
-    {
-        icon: <Magnet />,
-        label: 'Profile',
-        text: 'Profile',
-        route: 'profile',
-        altText: 'users profile page',
-        children: null,
-    },
-    {
-        icon: <MessageCircle />,
-        label: 'Clyster',
-        text: 'Clyster',
-        route: 'clyster',
-        altText: 'clyster messenger app',
-        children: null,
-    },
-    {
-        icon: <Magnet />,
-        label: 'Profile',
-        text: 'Profile',
-        route: 'profile',
-        altText: 'users profile page',
-        children: null,
-    },
+const menuRoutes: TNotifyRoutes[] = [
+  {
+    icon: <MessageCircle />,
+    label: "Clyster",
+    text: "Clyster",
+    route: "clyster",
+    altText: "clyster messenger app",
+    children: null,
+  },
+  {
+    icon: <Magnet />,
+    label: "Profile",
+    text: "Profile",
+    route: "profile",
+    altText: "users profile page",
+    children: null,
+  },
+  {
+    icon: <MessageCircle />,
+    label: "Clyster",
+    text: "Clyster",
+    route: "clyster",
+    altText: "clyster messenger app",
+    children: null,
+  },
+  {
+    icon: <Magnet />,
+    label: "Profile",
+    text: "Profile",
+    route: "profile",
+    altText: "users profile page",
+    children: null,
+  },
 ];
 const navLinksInnerContent: string[] = [
   "R",
@@ -110,15 +113,20 @@ const menuBarLinksInnerContent: string[] = ["C", "P", "D", "M", "O"];
 // notifyLinks
 export const notifyLinks = (
   <>
-    {
-        notifyRoutes.map((innerContent:TNotifyRoutes , index: number) => (
-        <li key={index} className={`${stylesForLi}`}>
-            <Link href={`/${innerContent.route}`}>
-            <span className={`${stylesForLiSpan}`}>{innerContent.icon}</span>
-            </Link>
-        </li>
-        ))
-    }
+    {notifyRoutes.map((innerContent: TNotifyRoutes, index: number) => (
+      <li key={index} className={`${stylesForLi}`}>
+        <Link href={`/${innerContent.route}`}>
+          <div className={`${stylesForLiSpan}`}>
+            <Image
+            className="text-black"
+              width={20}
+              height={20}
+              src={`${innerContent.iconUrl || "/placeholder.png"}`}
+              alt={innerContent.altText || "icon image"}></Image>
+          </div>
+        </Link>
+      </li>
+    ))}
   </>
 );
 
@@ -138,14 +146,12 @@ export const navLinks = (
 // User Specific menu bar
 export const menuBarLinks = (
   <>
-    {
-        menuRoutes.map((innerContent:TNotifyRoutes , index: number) => (
-        <li key={index} className={`${stylesForLi}`}>
-            <Link href={`/${innerContent.route}`}>
-            <span className={`${stylesForLiSpan}`}>{innerContent.icon}</span>
-            </Link>
-        </li>
-        ))
-    }
+    {menuRoutes.map((innerContent: TNotifyRoutes, index: number) => (
+      <li key={index} className={`${stylesForLi}`}>
+        <Link href={`/${innerContent.route}`}>
+          <span className={`${stylesForLiSpan}`}>{innerContent.icon}</span>
+        </Link>
+      </li>
+    ))}
   </>
 );
