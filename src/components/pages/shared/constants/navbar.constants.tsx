@@ -15,7 +15,7 @@ const notifyLinksInnerContents: string[] = ["R", "M", "L", "N", "O"];
 
 type TNotifyRoutes = {
   icon?: ReactNode;
-  iconUrl?: string;
+  iconUrl?: string | null;
   label: string;
   text: string;
   route?: string;
@@ -26,16 +26,16 @@ type TNotifyRoutes = {
 const notifyRoutes: TNotifyRoutes[] = [
   {
     // icon: <Bell /> ,
-    iconUrl: "/assets/images/icons/md-male-profile.svg",
-    label: "Clyster",
-    text: "Clyster",
-    route: "clyster",
-    altText: "clyster messenger app",
+    iconUrl: "/assets/images/icons/md-notify-ring.svg",
+    label: "Notify Ring",
+    text: "Notify Ring",
+    route: "Notify Ring",
+    altText: "Notify Ring messenger app",
     children: null,
   },
   {
     // icon: <Magnet />,
-    iconUrl: "/assets/images/icons/md-male-profile.svg",
+    iconUrl: null,
     label: "Profile",
     text: "Profile",
     route: "profile",
@@ -44,7 +44,7 @@ const notifyRoutes: TNotifyRoutes[] = [
   },
   {
     // icon: <MessageCircle />,
-    iconUrl: "/assets/images/icons/md-male-profile.svg",
+    iconUrl: null,
     label: "Clyster",
     text: "Clyster",
     route: "clyster",
@@ -53,7 +53,7 @@ const notifyRoutes: TNotifyRoutes[] = [
   },
   {
     // icon: <Magnet />,
-    iconUrl: "/assets/images/icons/md-male-profile.svg",
+    iconUrl: null,
     label: "Profile",
     text: "Profile",
     route: "profile",
@@ -115,14 +115,18 @@ export const notifyLinks = (
   <>
     {notifyRoutes.map((innerContent: TNotifyRoutes, index: number) => (
       <li key={index} className={`${stylesForLi}`}>
-        <Link href={`/${innerContent.route}`}>
+        <Link href={`/${(innerContent?.route)?.split(" ").join("-").toLowerCase()}`}>
           <div className={`${stylesForLiSpan}`}>
-            <Image
-            className="text-black"
-              width={20}
-              height={20}
-              src={`${innerContent.iconUrl || "/placeholder.png"}`}
-              alt={innerContent.altText || "icon image"}></Image>
+            {innerContent?.iconUrl ? (
+              <Image
+                className="text-black"
+                width={20}
+                height={20}
+                src={innerContent.iconUrl || "/placeholder.png"}
+                alt={innerContent.altText || "icon image"}></Image>
+            ) : (
+              <span>{innerContent.label[0].toUpperCase()}</span>
+            )}
           </div>
         </Link>
       </li>
