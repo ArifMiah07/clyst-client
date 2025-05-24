@@ -1,8 +1,8 @@
 "use client";
+
 import { Magnet, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import { ReactNode } from "react";
-import { Bell } from "lucide-react";
 import Image from "next/image";
 
 // styles
@@ -36,28 +36,37 @@ const notifyRoutes: TNotifyRoutes[] = [
   {
     // icon: <Magnet />,
     iconUrl: null,
-    label: "Profile",
-    text: "Profile",
-    route: "profile",
-    altText: "users profile page",
+    label: "Massage Notification",
+    text: "Massage Notification",
+    route: "Massage Notification",
+    altText: "users Massage Notification page",
     children: null,
   },
   {
     // icon: <MessageCircle />,
     iconUrl: null,
-    label: "Clyster",
-    text: "Clyster",
-    route: "clyster",
-    altText: "clyster messenger app",
+    label: "Live Notification",
+    text: "Live Notification",
+    route: "Live Notification",
+    altText: "Live Notification page",
     children: null,
   },
   {
     // icon: <Magnet />,
     iconUrl: null,
-    label: "Profile",
-    text: "Profile",
-    route: "profile",
-    altText: "users profile page",
+    label: "Friends Notification",
+    text: "Friends Notification",
+    route: "Friends Notification",
+    altText: "users Friends Notification page",
+    children: null,
+  },
+  {
+    // icon: <Magnet />,
+    iconUrl: null,
+    label: "Groups Notification",
+    text: "Groups Notification",
+    route: "Groups Notification",
+    altText: "users Groups Notification page",
     children: null,
   },
 ];
@@ -119,13 +128,13 @@ export const notifyLinks = (
           <div className={`${stylesForLiSpan}`}>
             {innerContent?.iconUrl ? (
               <Image
-                className="text-black"
+                className="text-normal"//todo: add necessary classes later
                 width={20}
                 height={20}
                 src={innerContent.iconUrl || "/placeholder.png"}
                 alt={innerContent.altText || "icon image"}></Image>
             ) : (
-              <span>{innerContent.label[0].toUpperCase()}</span>
+              <span>{(innerContent.label).trim()[0].toUpperCase()}</span>
             )}
           </div>
         </Link>
