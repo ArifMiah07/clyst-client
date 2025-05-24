@@ -1,9 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import "../../../styles/customStyles.css";
 import Image from "next/image";
-import { menuBarLinks, navLinks, notifyLinks } from "./constants/navbar.constants";
+import { notifyLinks } from "./constants/routes/notifyRoutes";
+import { navLinks } from "./constants/routes/navRoutes";
+import { menuBarLinks } from "./constants/routes/menuRoutes";
 
 export default function Navbar() {
   
