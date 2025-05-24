@@ -1,7 +1,16 @@
-# Clyst Frontend
+🚧 Clyst Frontend (In Progress)
 
-Im making Clyst Frontend and  this is a social media + personal space app where user will be able to manage her personal and social connection from the same place and as we will also going to implement lots of real word features so user will be very comfortable with our application
+![Clyst UI/UX](/public/assets/clyst-ui-ux/clyst-ui-ux.png)
 
-#wokring on design and icons
+Clyst is a unique social media + personal space app where users can manage their social connections and personal life from a single platform. Our goal is to bring real-world features that make the user experience not just powerful, but also intuitive and enjoyable.
 
-Layout: grid 12 columns  --- [3, 8, 1]
+We're focused on making the app feel like home—comfortable, clean, and efficient.
+
+🛠️ Currently Working On:
+🎨 UI/UX Design
+
+🧩 Custom Icons & Assets
+
+📐 Layout System: 12-column CSS Grid → [3, 8, 1] split
+
+Stay tuned! More updates coming soon 🚀
