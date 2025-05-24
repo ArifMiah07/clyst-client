@@ -19,7 +19,6 @@ export const menuRoutes: TNotifyRoutes[] = [
   {
     // icon: <Magnet />,
     iconUrl: genderIcons[user.gender],
-    // iconUrl: user.gender === 'male' ? '/assets/images/icons/md-male-profile.svg' : user.gender === 'female' ? '/assets/images/icons/md-female-profile.svg' : null,
     label: "User profile",
     text: "User profile",
     route: "User profile",
