@@ -39,7 +39,7 @@ export const menuRoutes: TNotifyRoutes[] = [
     iconUrl: '/assets/images/icons/md-global-menu.svg',
     label: "Global Menu",
     text: "Global Menu",
-    route: "Global Menu",
+    route: " Global Menu                  ",
     altText: "Global Menu page",
     children: null,
   },
@@ -52,7 +52,7 @@ export const menuBarLinks = (
   <>
     {menuRoutes.map((innerContent: TNotifyRoutes, index: number) => (
       <li key={index} className={`${stylesForLi}`}>
-        <Link href={`/${(innerContent?.route)?.split(" ").join("-").toLowerCase()}`}>
+        <Link href={`/${(innerContent?.route)?.trim().split(" ").join("-").toLowerCase()}`}>
           <div className={`${stylesForLiSpan}`}>
             {innerContent?.iconUrl ? (
               <Image

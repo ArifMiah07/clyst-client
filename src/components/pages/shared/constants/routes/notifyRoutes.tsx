@@ -48,7 +48,7 @@ export const notifyRoutes: TNotifyRoutes[] = [
     iconUrl: null,
     label: "Groups Notifications",
     text: "Groups Notifications",
-    route: "Groups Notifications",
+    route: "                  Groups Notifications                 ",
     altText: "users Groups Notifications page",
     children: null,
   },
@@ -59,7 +59,7 @@ export const notifyLinks = (
   <>
     {notifyRoutes.map((innerContent: TNotifyRoutes, index: number) => (
       <li key={index} className={`${stylesForLi}`}>
-        <Link href={`/${(innerContent?.route)?.split(" ").join("-").toLowerCase()}`}>
+        <Link href={`/${(innerContent?.route)?.trim().split(" ").join("-").toLowerCase()}`}>
           <div className={`${stylesForLiSpan}`}>
             {innerContent?.iconUrl ? (
               <Image
